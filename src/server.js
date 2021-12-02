@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import listEndpoints from "express-list-endpoints";
+import authorsRouter from "./authors/index.js";
 
 const server = express();
 const PORT = 3001;
@@ -8,6 +9,8 @@ const PORT = 3001;
 server.use(cors());
 
 server.use(express.json());
+
+server.use("/authors", authorsRouter);
 
 console.log(listEndpoints(server));
 
